@@ -109,8 +109,6 @@ public class ContextActivity extends AppCompatActivity {
                 final AlertDialog alertDialog = dialogBuilder.create();
                 TextView t = dialogView.findViewById(R.id.cdra);
                 t.setText(Html.fromHtml(getString(R.string.cdra_message) + getString(R.string.poha_message)));
-
-
                 alertDialog.show();
                 ImageView closeButton = (ImageView) alertDialog.findViewById(R.id.cdra_close);
                 closeButton.setOnClickListener(new View.OnClickListener() {
