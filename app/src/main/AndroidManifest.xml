@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ContextActivity" />
-        <activity android:name=".EvidenceActivity"></activity>
+        <activity android:name=".EvidenceActivity" />
+        <activity android:name=".TimeFrequencyActivity"></activity>
     </application>
 
 </manifest>
