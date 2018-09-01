@@ -42,7 +42,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:checkedButton="@+id/radioButton2"
+        android:checkedButton="@+id/radioButton1"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +93,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/acts_more_info" />
+        app:layout_constraintTop_toBottomOf="@+id/read_more_info" />
 
     <TextView
         android:id="@+id/textView5"
@@ -109,7 +109,7 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/acts_more_info" />
+        app:layout_constraintTop_toBottomOf="@+id/read_more_info" />
 
     <LinearLayout
         android:id="@+id/CDRA_checkboxes"
