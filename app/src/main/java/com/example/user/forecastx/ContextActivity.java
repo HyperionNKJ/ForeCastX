@@ -1,21 +1,31 @@
 package com.example.user.forecastx;
 
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class ContextActivity extends AppCompatActivity {
+    private RadioGroup rg;
     private RadioButton rb_cdra;
     private RadioButton rb_poha;
     private TextView read_more;
+    private TextView cdra_message;
+    private TextView poha_message;
+    private LinearLayout cdra_checkboxes;
+    private LinearLayout poha_checkboxes;
     private ArrayList<CheckBox> checkBoxes;
 
     @Override
@@ -23,10 +33,15 @@ public class ContextActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_context);
 
+        rg = this.findViewById(R.id.radioGroup);
         rb_cdra = this.findViewById(R.id.radioButton1);
         rb_poha = this.findViewById(R.id.radioButton2);
         read_more = this.findViewById(R.id.read_more_info);
         checkBoxes = new ArrayList<>();
+        cdra_message = this.findViewById(R.id.cdra_message);
+        poha_message = this.findViewById(R.id.poha_message);
+        cdra_checkboxes = this.findViewById(R.id.CDRA_checkboxes);
+        poha_checkboxes = this.findViewById(R.id.POHA_checkboxes);
         checkBoxes.add((CheckBox) this.findViewById(R.id.checkBox1));
         checkBoxes.add((CheckBox) this.findViewById(R.id.checkBox2));
         checkBoxes.add((CheckBox) this.findViewById(R.id.checkBox3));
@@ -43,8 +58,6 @@ public class ContextActivity extends AppCompatActivity {
         this.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ContextActivity.this, MainActivity.class);
-                startActivity(intent);
                 finish();
             }
         });
@@ -72,9 +85,54 @@ public class ContextActivity extends AppCompatActivity {
                 intent.putExtras(bundle);
                 startActivity(intent);
                 Log.d("Before", act.toString());
-                finish();
             }
         });
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (i == rb_cdra.getId()) {
+                    setVisibility(View.VISIBLE, View.VISIBLE, View.INVISIBLE, View.INVISIBLE);
+                    resetCheckboxes(Constants.NUM_OF_UNREASONABLE_INTERFERENCE, Constants.NUM_OF_UNREASONABLE_INTERFERENCE + Constants.NUM_OF_HARASSMENT_TYPE - 1);
+                } else {
+                    setVisibility(View.INVISIBLE, View.INVISIBLE, View.VISIBLE, View.VISIBLE);
+                    resetCheckboxes(0, Constants.NUM_OF_UNREASONABLE_INTERFERENCE - 1);
+                }
+            }
+        });
+        read_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ContextActivity.this);
+                LayoutInflater inflater = LayoutInflater.from(ContextActivity.this);
+                View dialogView = inflater.inflate(R.layout.cdra__poha_dialog, null);
+                dialogBuilder.setView(dialogView).setCancelable(true);
+                final AlertDialog alertDialog = dialogBuilder.create();
+                TextView t = dialogView.findViewById(R.id.cdra);
+                t.setText(Html.fromHtml(getString(R.string.cdra_message) + getString(R.string.poha_message)));
 
+
+                alertDialog.show();
+                ImageView closeButton = (ImageView) alertDialog.findViewById(R.id.cdra_close);
+                closeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        alertDialog.dismiss();
+                    }
+                });
+            }
+        });
+    }
+
+    private void setVisibility(int cdraMessageV, int cdraCheckboxesV, int pohaMessageV, int pohaCheckboxesV) {
+        cdra_message.setVisibility(cdraMessageV);
+        cdra_checkboxes.setVisibility(cdraCheckboxesV);
+        poha_message.setVisibility(pohaMessageV);
+        poha_checkboxes.setVisibility(pohaCheckboxesV);
+    }
+
+    private void resetCheckboxes(int start, int end) {
+        for (int i = start; i <= end; i++) {
+            checkBoxes.get(i).setChecked(false);
+        }
     }
 }

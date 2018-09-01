@@ -81,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/cdra_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -96,7 +96,7 @@
         app:layout_constraintTop_toBottomOf="@+id/read_more_info" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/poha_message"
         android:visibility="invisible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="1b) Please specify type of harassment:"
+        android:text="1b) Please specify type of harassment/s:"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -123,7 +123,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4">
+        app:layout_constraintTop_toBottomOf="@+id/cdra_message">
 
         <CheckBox
             android:id="@+id/checkBox1"
@@ -181,7 +181,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5">
+        app:layout_constraintTop_toBottomOf="@+id/poha_message">
 
         <CheckBox
             android:id="@+id/checkBox8"
