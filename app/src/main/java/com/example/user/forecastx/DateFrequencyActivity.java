@@ -24,6 +24,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class DateFrequencyActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private TextView lastOccurrence;
@@ -103,7 +104,7 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
             public void onClick(View view) {
                 double componentResult = generateComponentResult();
                 Constants.componentResults[1] = componentResult;
-                Log.d("Frequency strength", String.valueOf(componentResult));
+                Log.d("DateFrequency strength", String.valueOf(componentResult));
                 Intent intent = new Intent(DateFrequencyActivity.this, AggressorActivity.class);
                 startActivity(intent);
             }
@@ -133,6 +134,28 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
     }
 
     private double generateComponentResult() {
+        // calculate num of days between now and last occurrence
+        long diffInMillies = Calendar.getInstance().getTimeInMillis() - lastOccurrenceDate.getTimeInMillis();
+        long numOfDaysAgo = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
 
+        // checks if last occurrence date is before POHA's effective date of 2014
+        Constants.isBefore2014 = lastOccurrenceDate.get(Calendar.YEAR) < 2014;
+
+        // applies linear formula f(x) = -100/730 * x + 100 to find last occurrence's weight. f(x) = weight, x = num of days ago. Assumes f(0) = 100, f(2 years) = 0
+        double fx = (-100 / 730.0) * numOfDaysAgo + 100;
+        double ageWeight = (fx < 0) ? 0 : fx;
+
+        // gets the multiplier for num of time and frequency
+        int seekbarProgress = question3bSeekbar.getProgress();
+        int spinnerProgress = question3cSpinner.getSelectedItemPosition();
+        double numOfTimeMultiplier = (Constants.isCdra) ? Constants.CDRA_NUM_OF_TIME_MULTIPLIER[seekbarProgress] : Constants.POHA_NUM_OF_TIME_MULTIPLIER[seekbarProgress];
+        double frequencyMultiplier;
+        if (seekbarProgress == 0) {
+            frequencyMultiplier = 1.0;
+        } else {
+            frequencyMultiplier =  (Constants.isCdra) ? Constants.CDRA_FREQUENCY_MULTIPLIER[spinnerProgress] : Constants.POHA_FREQUENCY_MULTIPLIER[spinnerProgress];
+        }
+        double finalDateFrequencyStrength = ageWeight * numOfTimeMultiplier * frequencyMultiplier;
+        return (finalDateFrequencyStrength > 100) ? 100 : finalDateFrequencyStrength;
     }
 }
