@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,11 @@ public class EvidenceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evidence);
+
+        TextView title = findViewById(R.id.evidence_title);
+        if (!Constants.isCdra) {
+            title.setText("Step 1/8: Evidence");
+        }
 
         Bundle bundle = this.getIntent().getExtras();
         if (bundle != null) {

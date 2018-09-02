@@ -42,6 +42,11 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_frequency);
 
+        TextView title = findViewById(R.id.date_and_frequency_title);
+        if (!Constants.isCdra) {
+            title.setText("Step 2/8: Date and Frequency of Occurrence");
+        }
+
         question3b = findViewById(R.id.three_3b);
         question3bFrequency = findViewById(R.id.three_3b_frequency);
         question3bSeekbar = findViewById(R.id.three_3b_seekBar);
@@ -52,9 +57,9 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
         constraintLayout = findViewById(R.id.constraint_layout);
 
         if (!Constants.isCdra) {
-            question3b.setText("How many times were you harassed?:");
+            question3b.setText("2b) How many times were you harassed?:");
             question3bSeekbar.setMax(Constants.NUM_OF_OPTIONS_FOR_POHA_FREQUENCY - 1);
-            question3c.setText("3c) On average, what was the frequency of harassment?");
+            question3c.setText("2c) On average, what was the frequency of harassment?");
             question3cMessage.setText("I was harassed once every ");
         }
 
@@ -105,7 +110,12 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
                 double componentResult = generateComponentResult();
                 Constants.componentResults[1] = componentResult;
                 Log.d("DateFrequency strength", String.valueOf(componentResult));
-                Intent intent = new Intent(DateFrequencyActivity.this, AggressorActivity.class);
+                Intent intent;
+                if (Constants.isCdra) {     // if CDRA, then no need for aggressor component. Jump straight to payment component.
+                    intent = new Intent(DateFrequencyActivity.this, PaymentActivity.class);
+                } else {
+                    intent = new Intent(DateFrequencyActivity.this, AggressorActivity.class);
+                }
                 startActivity(intent);
             }
         });
@@ -126,7 +136,7 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
         ConstraintSet constraintSet = new ConstraintSet();
         constraintSet.clone(constraintLayout);
         if (visibility == View.VISIBLE) {
-            constraintSet.connect(R.id.back_next_layout,ConstraintSet.TOP,R.id.three_3c_message,ConstraintSet.BOTTOM,24);
+            constraintSet.connect(R.id.back_next_layout,ConstraintSet.TOP,R.id.three_3c_message,ConstraintSet.BOTTOM,48);
         } else {
             constraintSet.connect(R.id.back_next_layout,ConstraintSet.TOP,R.id.three_3b_frequency,ConstraintSet.BOTTOM,24);
         }

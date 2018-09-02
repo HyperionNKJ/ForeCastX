@@ -9,17 +9,17 @@
 <b>(f)</b>	trespassing on the neighbour’s place of residence;<br><br>
 <b>(g)</b>	allowing an animal owned by or under the care or control of the respondent to trespass on the neighbour’s place of residence, to cause excessive noise or smell, or to defecate or urinate at or in the vicinity of the neighbour’s place of residence. </p><br>]]></string>
     <string name="poha_message"><![CDATA[<h4>Protection from Harassment Act</h4> <p>An Act to protect persons against harassment and unlawful stalking and to create offences, and provide civil remedies related thereto or in relation to false statements of fact. <br><br>
-<b>(1) Intentionally causing harassment, alarm or distress</b><br><br>
+<b>(1) Intentionally causing harassment, alarm or distress - Section 3</b><br><br>
 No person shall, with intent to cause harassment, alarm or distress to another person, by any means — <br><br>
 &emsp;(a)	use any threatening, abusive or insulting words or behaviour; or<br><br>
 &emsp;(b)	make any threatening, abusive or insulting communication,<br><br>
 thereby causing that other person or any other person (each referred to for the purposes of this section as the victim) harassment, alarm or distress.<br><br>
-<b>(2) Harassment, alarm or distress</b><br><br>
+<b>(2) Harassment, alarm or distress - Section 4</b><br><br>
 No person shall by any means —<br><br>
 &emsp;(a)	use any threatening, abusive or insulting words or behaviour; or<br><br>
 &emsp;(b)	make any threatening, abusive or insulting communication,<br><br>
 which is heard, seen or otherwise perceived by any person (referred to for the purposes of this section as the victim) likely to be caused harassment, alarm or distress.<br><br>
-<b>(3) Fear or provocation of violence</b><br><br>
+<b>(3) Fear or provocation of violence - Section 5</b><br><br>
 No person shall by any means use towards another person (referred to for the purposes of this section as the victim) any threatening, abusive or insulting words or behaviour, or make any threatening, abusive or insulting communication to another person (referred to also for the purposes of this section as the victim), either —<br><br>
 &emsp;(a)	with the intent —<br><br>
 &emsp;&emsp;&emsp;(i)	to cause the victim to believe that unlawful violence will be used by any person against the victim or any other person; or<br><br>
@@ -27,13 +27,13 @@ No person shall by any means use towards another person (referred to for the pur
 &emsp;(b)	whereby —<br><br>
 &emsp;&emsp;&emsp;(i)	the victim is likely to believe that such violence referred to in paragraph (a)(i) will be used; or<br><br>
 &emsp;&emsp;&emsp;(ii)	it is likely that such violence referred to in paragraph (a)(ii) will be provoked.<br><br>
-<b>(4) Threatening, abusing or insulting public servant or public service worker</b><br><br>
+<b>(4) Threatening, abusing or insulting public servant or public service worker - Section 6</b><br><br>
 No person shall by any means —<br><br>
 &emsp;(a)	use any indecent, threatening, abusive or insulting words or behaviour; or<br><br>
 &emsp;(b)	make any indecent, threatening, abusive or insulting communication,<br><br>
 towards or to a public servant or public service worker (referred to for the purposes of this section as the victim) in relation to the execution of the victim’s duty as such public servant or public service worker. <br><br>
 No offence is committed under this section unless the person knows or ought reasonably to know that the victim was acting in his capacity as a public servant or public service worker, as the case may be.<br><br>
-<b>(5) Unlawful stalking</b><br><br>
+<b>(5) Unlawful stalking - Section 7</b><br><br>
 No person shall unlawfully stalk another person.<br><br>
 Subject to subsection (7), a person (referred to in this section as the accused person) unlawfully stalks another person (referred to for the purposes of this section as the victim) if the accused person engages in a course of conduct which —<br><br>
 &emsp;(a)	involves acts or omissions associated with stalking;<br><br>
@@ -67,6 +67,6 @@ In considering whether a course of conduct is likely to cause harassment, alarm 
         <item>8 to 14 days</item>
         <item>15 to 28 days</item>
         <item>1 to 2 months</item>
-        <item>3 months or more</item>
+        <item>3 months ++</item>
     </string-array>
 </resources>

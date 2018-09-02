@@ -19,7 +19,8 @@
         <activity android:name=".ContextActivity" />
         <activity android:name=".EvidenceActivity" />
         <activity android:name=".DateFrequencyActivity" />
-        <activity android:name=".AggressorActivity"></activity>
+        <activity android:name=".AggressorActivity" />
+        <activity android:name=".PaymentActivity"></activity>
     </application>
 
 </manifest>

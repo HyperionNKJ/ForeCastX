@@ -7,13 +7,13 @@
     tools:context=".EvidenceActivity">
 
     <TextView
-        android:id="@+id/two_textView2"
+        android:id="@+id/evidence_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Step 2/8: Evidence"
+        android:text="Step 1/7: Evidence"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,12 +26,12 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="2a) Please tick all the evidence/s you can provide:"
+        android:text="1a) Please tick all the evidence/s you can provide:"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/two_textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/evidence_title" />
 
     <LinearLayout
         android:id="@+id/evidence_checkboxes"

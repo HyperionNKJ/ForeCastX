@@ -8,13 +8,13 @@
     tools:context=".DateFrequencyActivity">
 
     <TextView
-        android:id="@+id/three_textView2"
+        android:id="@+id/date_and_frequency_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Step 3/8: Date / Frequency of Occurrence"
+        android:text="Step 2/7: Date and Frequency of Occurrence"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,12 +27,12 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="3a) Please state the date of last occurrence:"
+        android:text="2a) Please state the date of last occurrence:"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/three_textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/date_and_frequency_title" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -92,7 +92,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="3b) How many times were you interfered?:"
+        android:text="2b) How many times were you interfered?:"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -134,7 +134,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:visibility="invisible"
-        android:text="3c) On average, what was the frequency of interferences?"
+        android:text="2c) On average, what was the frequency of interferences?"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -145,21 +145,22 @@
         android:id="@+id/three_3c_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:visibility="invisible"
         android:text="I was interfered once every "
         android:textColor="@android:color/black"
         android:textSize="15sp"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/three_3c" />
 
     <Spinner
         android:id="@+id/three_3c_spinner"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginTop="14dp"
+        android:background="@drawable/rounded_coloured_background"
         android:entries="@array/interval"
         android:visibility="invisible"
         app:layout_constraintStart_toEndOf="@+id/three_3c_message"

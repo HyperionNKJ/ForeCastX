@@ -22,6 +22,7 @@ public class Constants {
                     {10,20,60,80,95,30,70,50},
                     {10,20,60,80,95,30,70,50},
                     {10,20,0,80,95,30,70,50}};
+    public static final float[] POHA_AGGRESSOR_WEIGHTS = {50,30,30,20,10};
     public static final double[] CDRA_NUM_OF_TIME_MULTIPLIER = {0.5,0.75,1,1.05,1.1,1.15,1.2,1.3,1.4,1.5};
     public static final double[] POHA_NUM_OF_TIME_MULTIPLIER = {0.8,0.9,1,1.25,1.5};
     public static final double[] CDRA_FREQUENCY_MULTIPLIER = {1.3,1.15,1,0.8,0.6,0.4};
