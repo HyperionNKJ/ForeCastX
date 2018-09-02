@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/constraint_layout"
     tools:context=".DateFrequencyActivity">
 
     <TextView
@@ -107,13 +108,13 @@
         android:layout_marginRight="32dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="18dp"
-        android:max="10"
+        android:max="9"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/three_3b_message"
+        app:layout_constraintStart_toEndOf="@+id/three_3b_frequency"
         app:layout_constraintTop_toBottomOf="@+id/three_3b" />
 
     <TextView
-        android:id="@+id/three_3b_message"
+        android:id="@+id/three_3b_frequency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
@@ -133,12 +134,12 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:visibility="invisible"
-        android:text="3c) On average, how often were the interferences?"
+        android:text="3c) On average, what was the frequency of interferences?"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/three_3b_message" />
+        app:layout_constraintTop_toBottomOf="@+id/three_3b_frequency" />
 
     <TextView
         android:id="@+id/three_3c_message"
@@ -165,6 +166,7 @@
         app:layout_constraintTop_toBottomOf="@+id/three_3c" />
 
     <LinearLayout
+        android:id="@+id/back_next_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -177,7 +179,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/three_3b_message">
+        app:layout_constraintTop_toBottomOf="@+id/three_3b_frequency">
 
         <Button
             android:id="@+id/back"

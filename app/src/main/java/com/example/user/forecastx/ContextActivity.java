@@ -72,12 +72,14 @@ public class ContextActivity extends AppCompatActivity {
                         interferencesOrHarassment[i] = checkBoxes.get(i).isChecked();
                     }
                     act = new Cdra(interferencesOrHarassment);
+                    Constants.isCdra = true;
                 } else {
                     interferencesOrHarassment = new boolean[Constants.NUM_OF_HARASSMENT_TYPE];
                     for (int i = 0; i < Constants.NUM_OF_HARASSMENT_TYPE; i++) {
                         interferencesOrHarassment[i] = checkBoxes.get(i + Constants.NUM_OF_UNREASONABLE_INTERFERENCE).isChecked();
                     }
                     act = new Poha(interferencesOrHarassment);
+                    Constants.isCdra = false;
                 }
                 Intent intent = new Intent(ContextActivity.this, EvidenceActivity.class);
                 Bundle bundle = new Bundle();

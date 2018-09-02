@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".ContextActivity" />
         <activity android:name=".EvidenceActivity" />
-        <activity android:name=".DateFrequencyActivity"></activity>
+        <activity android:name=".DateFrequencyActivity" />
+        <activity android:name=".AggressorActivity"></activity>
     </application>
 
 </manifest>
