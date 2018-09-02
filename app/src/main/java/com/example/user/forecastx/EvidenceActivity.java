@@ -50,7 +50,7 @@ public class EvidenceActivity extends AppCompatActivity {
                 double componentResult = act.generateEvidenceStrength(evidences);
                 Constants.componentResults[0] = componentResult;
                 Log.d("Evidence strength", String.valueOf(componentResult));
-                Intent intent = new Intent(EvidenceActivity.this, TimeFrequencyActivity.class);
+                Intent intent = new Intent(EvidenceActivity.this, DateFrequencyActivity.class);
                 startActivity(intent);
             }
         });

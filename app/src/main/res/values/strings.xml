@@ -61,4 +61,11 @@ In considering whether a course of conduct is likely to cause harassment, alarm 
 &emsp;(f)	the likely effects of the course of conduct on the victim’s safety, health, reputation, economic position, or his freedom to do any act which he is legally entitled to do or not to do any act which he is not legally bound to do; and<br><br>
 &emsp;(g)	the circumstances of the victim including his physical or mental health and personality.<br><br>
 ]]> </string>
+    <string-array name="interval">
+        <item>1 day or less</item>
+        <item>2 to 7 days</item>
+        <item>8 to 14 days</item>
+        <item>15 to 28 days</item>
+        <item>29 days or more</item>
+    </string-array>
 </resources>
