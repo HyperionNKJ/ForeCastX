@@ -1,6 +1,9 @@
 package com.example.user.forecastx;
 
 public class Constants {
+    public static final int COST_OF_APPLICATION = 200;
+    public static final double PERCENTAGE_COST_OF_EPO_APPLICATION = 1.16;
+    public static final int MAX_NUM_OF_EVIDENCE_SHEETS = 200;
     public static final int NUM_OF_EVIDENCE = 8;
     public static final double EVIDENCE_DIMINISHING_FACTOR = 0.5;
     public static final int NUM_OF_UNREASONABLE_INTERFERENCE = 7;
@@ -33,4 +36,5 @@ public class Constants {
     // FLAGS
     public static boolean isCdra;
     public static boolean isBefore2014;
+    public static boolean canAfford;
 }

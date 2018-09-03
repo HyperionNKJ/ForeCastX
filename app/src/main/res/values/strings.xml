@@ -61,6 +61,26 @@ In considering whether a course of conduct is likely to cause harassment, alarm 
 &emsp;(f)	the likely effects of the course of conduct on the victim’s safety, health, reputation, economic position, or his freedom to do any act which he is legally entitled to do or not to do any act which he is not legally bound to do; and<br><br>
 &emsp;(g)	the circumstances of the victim including his physical or mental health and personality.<br><br>
 ]]> </string>
+
+    <string name="epo_message"><![CDATA[<h4>Protection from Harassment Act,<br> Section 13 - Expedited protection order</h4>
+(1)  Where, upon an application for a protection order under section 12, the District Court is satisfied that —<br><br>
+&emsp;(a)	there is prima facie evidence that —<br><br>
+&emsp;&emsp;&emsp;(i)	the respondent has contravened section 3, 4, 5, 6 or 7 in respect of the victim;<br><br>
+&emsp;&emsp;&emsp;(ii)	the contravention referred to in sub‑paragraph (i) is likely to continue, or the respondent is likely to commit a contravention of section 3, 4, 5, 6 or 7 in respect of the victim imminently; and<br><br>
+&emsp;&emsp;&emsp;(iii)	the contravention referred to in sub‑paragraph (ii), if continued or committed, is likely to have a substantial adverse effect on the victim or the victim’s day‑to‑day activities; and<br><br>
+&emsp;(b)	it is just and equitable in all the circumstances for the protection order to be made on an expedited basis,<br><br>
+the District Court may make an expedited protection order for all or any of the purposes of section 12(3) (subject to section 21(1)), notwithstanding that notice of the application has not been served on the respondent or has not been served on the respondent within a reasonable time before the hearing of the application.<br><br>
+(2)  An expedited protection order shall take effect in respect of the person to whom such order applies —<br><br>
+&emsp;(a)	from the date when such order is served on him in such manner as may be prescribed;<br><br>
+&emsp;(b)	where the District Court dispenses with the service of such order, from the date when the service on him of such order is dispensed with by the District Court; or<br><br>
+&emsp;(c)	such later date as the District Court may specify.<br><br>
+(3)  An expedited protection order shall cease to have effect on the earlier of the following dates:<br><br>
+&emsp;(a)	on the 28th day after the date of the making of the expedited protection order;<br><br>
+&emsp;(b)	on the first day of the hearing of the application for the protection order.<br><br>
+(4)  Section 12(4), (7) and (8) shall, with the necessary modifications, apply to an expedited protection order.<br><br>
+(5)  There shall be no appeal against a decision of the District Court made under this section.<br><br>
+]]></string>
+
     <string-array name="interval">
         <item>1 day or less</item>
         <item>2 to 7 days</item>

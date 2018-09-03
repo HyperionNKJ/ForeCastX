@@ -65,7 +65,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:checkedButton="@+id/radioButton1"
+                android:checkedButton="@+id/epo_no"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,8 +82,8 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="100dp"
+                    android:layout_weight="1"
                     android:text="Yes"
                     android:textSize="13sp" />
             </RadioGroup>
@@ -123,16 +123,32 @@
                     android:textColor="@android:color/black"
                     android:textSize="14sp" />
 
+                <!-- Dummy item to prevent AutoCompleteTextView from receiving focus -->
+                <LinearLayout
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:layout_width="0px"
+                    android:layout_height="0px"/>
+
+                <!-- :nextFocusUp and :nextFocusLeft have been set to the id of this component
+                to prevent the dummy from receiving focus again -->
+
                 <EditText
+                    android:id="@+id/num_sheets"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10sp"
+                    android:ems="10"
                     android:gravity="center"
-                    android:hint="Input here" />
+                    android:hint="Input here"
+                    android:inputType="number"
+                    android:nextFocusUp="@id/num_sheets"
+                    android:nextFocusLeft="@id/num_sheets" />
+
             </LinearLayout>
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/payment_partC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -158,7 +174,7 @@
                 android:padding="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6">
+                app:layout_constraintTop_toBottomOf="@+id/payment_partC">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -222,6 +238,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
                         android:text="$200"
+                        android:gravity="center"
                         android:textColor="@android:color/black"
                         android:textSize="14sp" />
                 </TableRow>
@@ -318,7 +335,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
                         android:gravity="center"
-                        android:text="$200"
+                        android:text="$200.00"
                         android:textColor="@android:color/black"
                         android:textSize="14sp" />
                 </TableRow>
@@ -347,7 +364,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:checkedButton="@+id/radioButton1"
+                android:checkedButton="@+id/cost_yes"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -362,6 +379,7 @@
                     android:textSize="13sp" />
 
                 <RadioButton
+                    android:id="@+id/cost_yes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="100dp"
@@ -402,6 +420,7 @@
                     tools:layout_editor_absoluteX="175dp"
                     tools:layout_editor_absoluteY="482dp" />
             </LinearLayout>
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 

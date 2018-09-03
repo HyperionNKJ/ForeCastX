@@ -20,7 +20,8 @@
         <activity android:name=".EvidenceActivity" />
         <activity android:name=".DateFrequencyActivity" />
         <activity android:name=".AggressorActivity" />
-        <activity android:name=".PaymentActivity"></activity>
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".RespondentParticularActivity"></activity>
     </application>
 
 </manifest>
