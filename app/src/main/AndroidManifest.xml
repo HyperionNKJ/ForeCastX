@@ -24,7 +24,10 @@
         <activity android:name=".RespondentParticularActivity" />
         <activity android:name=".PersonalServiceActivity" />
         <activity android:name=".PtcActivity" />
-        <activity android:name=".CourtHearingActivity"></activity>
+        <activity android:name=".CourtHearingActivity" />
+        <activity android:name=".ProtectionType" />
+        <activity android:name=".EpoHistoryActivity" />
+        <activity android:name=".FinalReportActivity"></activity>
     </application>
 
 </manifest>

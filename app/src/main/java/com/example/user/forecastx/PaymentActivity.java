@@ -118,6 +118,8 @@ public class PaymentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Constants.totalApplicationCost = totalCost.getTotalCost();
                 Constants.canAfford = costYes.isChecked();
+                RadioButton selectedEpoRb = findViewById(epoRadioGroup.getCheckedRadioButtonId());
+                Constants.isEpoApplication = selectedEpoRb.getText().equals("Yes");
                 Log.d("canAfford", String.valueOf(Constants.canAfford));
                 Intent intent = new Intent(PaymentActivity.this, RespondentParticularActivity.class);
                 startActivity(intent);

@@ -46,4 +46,34 @@ public class Constants {
     public static boolean hasName;
     public static boolean hasAddress;
     public static boolean canDeliver;
+    public static boolean respondentIsAttending;    // Instant win or Divide 2 probability
+    public static boolean isEpoApplication;     // Divide 1.5 probability because need prove imminent
+    public static boolean hasEpoBefore;    // higher probability because granted protection before
+
+    public static double computeFinalProbability() {
+        if (isBefore2014 || !canAfford || !hasAddress || !hasName || !canDeliver) {
+            return 0;
+        }
+        double finalProbability = 0;
+        for (int i = 0; i < NUM_OF_EFFECTIVE_COMPONENTS; i++) {
+            if (isCdra && i == 2) {
+                continue;
+            }
+            finalProbability += componentResults[i];
+        }
+        finalProbability /= ((isCdra) ? NUM_OF_EFFECTIVE_COMPONENTS - 1 : NUM_OF_EFFECTIVE_COMPONENTS);
+
+        // apply multiplier
+        if (!respondentIsAttending) {
+            return 100;
+        } else {
+            finalProbability /= 1.2;
+        }
+        if (isEpoApplication) {
+            finalProbability /= 1.5;
+        } else if (hasEpoBefore) {
+            finalProbability *= 1.3;
+        }
+        return finalProbability;
+    }
 }
