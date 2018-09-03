@@ -70,7 +70,7 @@ public class RespondentParticularActivity extends AppCompatActivity {
                 if (!Constants.isCdra && isCyberBullying()) {
                     particularWeight = Constants.CYBER_REPONDENT_PARTICULARS_WEIGHTS;
                 } else {
-                    particularWeight = Constants.REPONDENT_PARTICULARS_WEIGHTS;
+                    particularWeight = Constants.RESPONDENT_PARTICULARS_WEIGHTS;
                 }
                 // this component has free initial "50" weight.
                 double componentResult = (50 + ((particularsCheckboxes.get(2).isChecked()) ? particularWeight[0] : 0)

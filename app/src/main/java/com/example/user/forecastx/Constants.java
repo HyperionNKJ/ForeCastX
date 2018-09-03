@@ -30,9 +30,10 @@ public class Constants {
     public static final double[] POHA_NUM_OF_TIME_MULTIPLIER = {0.8,0.9,1,1.25,1.5};
     public static final double[] CDRA_FREQUENCY_MULTIPLIER = {1.3,1.15,1,0.8,0.6,0.4};
     public static final double[] POHA_FREQUENCY_MULTIPLIER = {1.3,1.15,1,0.8,0.6,0.4};
-    public static final float[] REPONDENT_PARTICULARS_WEIGHTS = {25, 25};   // respondent particulars component will have free "50" weight
+    public static final float[] RESPONDENT_PARTICULARS_WEIGHTS = {25, 25};   // respondent particulars component will have free "50" weight
     public static final float[] CYBER_REPONDENT_PARTICULARS_WEIGHTS = {25, 100};
-
+    public static final float PTC_RESPONDENT_CAN_ATTEND_WEIGHT = 10;
+    public static final float PTC_PER_MEDIATION_WEIGHT = 30;
 
     // Use https://plot.ly/create/line-of-best-fit/#/ for curve fitting
     public static double[] componentResults = new double[NUM_OF_EFFECTIVE_COMPONENTS]; // In this order: Evidence, Frequency of harass, Type of aggressor, Availability of particulars, PTC

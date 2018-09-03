@@ -23,7 +23,8 @@
         <activity android:name=".PaymentActivity" />
         <activity android:name=".RespondentParticularActivity" />
         <activity android:name=".PersonalServiceActivity" />
-        <activity android:name=".PtcActivity"></activity>
+        <activity android:name=".PtcActivity" />
+        <activity android:name=".CourtHearingActivity"></activity>
     </application>
 
 </manifest>

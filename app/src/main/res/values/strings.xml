@@ -81,6 +81,11 @@ the District Court may make an expedited protection order for all or any of the 
 (5)  There shall be no appeal against a decision of the District Court made under this section.<br><br>
 ]]></string>
 
+    <string name="ptc_message"><![CDATA[<h4>Pre-Trial Conference (PTC)</h4>
+    If an accused person claims trial for his case, the Criminal Mentions Court will fix the case for a PTC. The purpose of the PTC is for the Court to conduct pre-trial procedures (e.g. criminal case disclosure procedures) before the case proceeds for trial and to settle any administrative matter in relation to the trial.<br><br>
+The accused person or his lawyer will have to attend the PTC together with the prosecution. At the PTC, the Judge will be informed of the nature of the evidence that will be tendered by the prosecution and by the accused person or his lawyer. Both parties will also indicate the number and names of the witnesses that they intend to call during the trial. This will be done under the Criminal Case Disclosure Conference process for those cases that are subject to this process.<br><br>
+The Judge will give a date for the trial once all the criminal case disclosure procedures have been complied with and the parties are ready to proceed to trial.<br>]]></string>
+
     <string-array name="interval">
         <item>1 day or less</item>
         <item>2 to 7 days</item>
@@ -88,5 +93,13 @@ the District Court may make an expedited protection order for all or any of the 
         <item>15 to 28 days</item>
         <item>1 to 2 months</item>
         <item>3 months ++</item>
+    </string-array>
+
+    <string-array name="mediation">
+        <item> Never</item>
+        <item> 1 time</item>
+        <item> 2 times</item>
+        <item> 3 times</item>
+        <item>4 times ++</item>
     </string-array>
 </resources>
