@@ -141,30 +141,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/three_3b_frequency" />
 
-    <TextView
-        android:id="@+id/three_3c_message"
+    <LinearLayout
+        android:id="@+id/three_3c_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="I was interfered once every "
-        android:textColor="@android:color/black"
-        android:textSize="15sp"
-        android:visibility="invisible"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/three_3c" />
+        app:layout_constraintTop_toTopOf="@+id/three_3c">
 
-    <Spinner
-        android:id="@+id/three_3c_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginTop="14dp"
-        android:background="@drawable/rounded_coloured_background"
-        android:entries="@array/interval"
-        android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/three_3c_message"
-        app:layout_constraintTop_toBottomOf="@+id/three_3c" />
+        <TextView
+            android:id="@+id/three_3c_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I was interfered once every "
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:visibility="invisible" />
+
+        <Spinner
+            android:id="@+id/three_3c_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:background="@drawable/rounded_coloured_background"
+            android:entries="@array/interval"
+            android:visibility="invisible" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/back_next_layout"
@@ -188,6 +194,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Back"
+            android:visibility="visible"
             tools:layout_editor_absoluteX="50dp"
             tools:layout_editor_absoluteY="464dp" />
 
@@ -197,6 +204,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Next"
+            android:visibility="visible"
+
             tools:layout_editor_absoluteX="175dp"
             tools:layout_editor_absoluteY="482dp" />
     </LinearLayout>

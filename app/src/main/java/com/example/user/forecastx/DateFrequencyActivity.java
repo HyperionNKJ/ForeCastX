@@ -136,7 +136,7 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
         ConstraintSet constraintSet = new ConstraintSet();
         constraintSet.clone(constraintLayout);
         if (visibility == View.VISIBLE) {
-            constraintSet.connect(R.id.back_next_layout,ConstraintSet.TOP,R.id.three_3c_message,ConstraintSet.BOTTOM,48);
+            constraintSet.connect(R.id.back_next_layout,ConstraintSet.TOP,R.id.three_3c_layout,ConstraintSet.BOTTOM,48);
         } else {
             constraintSet.connect(R.id.back_next_layout,ConstraintSet.TOP,R.id.three_3b_frequency,ConstraintSet.BOTTOM,24);
         }
