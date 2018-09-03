@@ -2,92 +2,39 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/respondent_constraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RespondentParticularActivity">
+    tools:context=".PersonalServiceActivity">
 
     <TextView
-        android:id="@+id/respondent_title"
+        android:id="@+id/personal_service_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Step 4/7: Respondent's particulars"
+        android:text="Step 5/7: Personal Service"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/respondent_partA"
+        android:id="@+id/personal_service_partA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="4a) Please tick all the particulars of the respondent that you are able to furnish:"
+        android:text="5a) Do you have the ability to serve legal documents to him personally?:"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/respondent_title" />
-
-    <LinearLayout
-        android:id="@+id/particulars_checkboxes"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/respondent_partA">
-
-        <CheckBox
-            android:id="@+id/respondent_checkBox1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Full name (Mandatory)" />
-        <CheckBox
-            android:id="@+id/respondent_checkBox2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Address (Mandatory)" />
-        <CheckBox
-            android:id="@+id/respondent_checkBox3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email" />
-        <CheckBox
-            android:id="@+id/respondent_checkBox4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Social media" />
-    </LinearLayout>
-
-    <!-- Only available for POHA (cyberbullying)-->
-    <TextView
-        android:id="@+id/respondent_partB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="5b) Was the act a form of cyber-bullying?:"
-        android:visibility="invisible"
-        android:textColor="@android:color/black"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/particulars_checkboxes" />
+        app:layout_constraintTop_toBottomOf="@+id/personal_service_title" />
 
     <RadioGroup
-        android:id="@+id/cyber_radioGroup"
+        android:id="@+id/personal_service_radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -95,15 +42,14 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:visibility="invisible"
-        android:checkedButton="@+id/cyber_no"
+        android:checkedButton="@+id/personal_service_yes"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/respondent_partB">
+        app:layout_constraintTop_toBottomOf="@+id/personal_service_partA">
 
         <RadioButton
-            android:id="@+id/cyber_no"
+            android:id="@+id/personal_service_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -111,17 +57,16 @@
             android:textSize="13sp" />
 
         <RadioButton
-            android:id="@+id/cyber_yes"
+            android:id="@+id/personal_service_yes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
             android:layout_weight="1"
+            android:layout_marginLeft= "100dp"
             android:text="Yes"
             android:textSize="13sp" />
     </RadioGroup>
 
     <LinearLayout
-        android:id="@+id/respondent_back_next_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -133,7 +78,7 @@
         android:weightSum="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/particulars_checkboxes">
+        app:layout_constraintTop_toBottomOf="@+id/personal_service_radioGroup">
 
         <Button
             android:id="@+id/back"

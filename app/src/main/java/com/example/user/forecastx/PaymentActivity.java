@@ -116,6 +116,7 @@ public class PaymentActivity extends AppCompatActivity {
         this.findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Constants.totalApplicationCost = totalCost.getTotalCost();
                 Constants.canAfford = costYes.isChecked();
                 Log.d("canAfford", String.valueOf(Constants.canAfford));
                 Intent intent = new Intent(PaymentActivity.this, RespondentParticularActivity.class);
@@ -142,6 +143,10 @@ public class PaymentActivity extends AppCompatActivity {
             tv_totalCost = findViewById(R.id.total_cost);
         }
 
+        public double getTotalCost() {
+            return totalCost;
+        }
+
         public void setEpo(boolean epoApplication) {
             this.epoApplication = epoApplication;
             updateReceipt();
@@ -155,7 +160,7 @@ public class PaymentActivity extends AppCompatActivity {
         private void updateReceipt() {
             evidenceQty.setText(String.valueOf(numEvidenceSheet));
             evidenceCost.setText(String.valueOf("$" + numEvidenceSheet));
-            double subTotal = Constants.COST_OF_APPLICATION + numEvidenceSheet;
+            double subTotal = Constants.GENERAL_COST_OF_APPLICATION + numEvidenceSheet;
             if (epoApplication) {
                 epoQty.setText("1");
                 epoCost.setText(String.valueOf("+16%"));

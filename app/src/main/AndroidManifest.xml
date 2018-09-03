@@ -21,7 +21,9 @@
         <activity android:name=".DateFrequencyActivity" />
         <activity android:name=".AggressorActivity" />
         <activity android:name=".PaymentActivity" />
-        <activity android:name=".RespondentParticularActivity"></activity>
+        <activity android:name=".RespondentParticularActivity" />
+        <activity android:name=".PersonalServiceActivity" />
+        <activity android:name=".PtcActivity"></activity>
     </application>
 
 </manifest>
