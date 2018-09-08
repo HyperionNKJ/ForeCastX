@@ -1,8 +1,10 @@
 package com.example.user.forecastx;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -65,24 +67,46 @@ public class RespondentParticularActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Constants.hasName = particularsCheckboxes.get(0).isChecked();
-                Constants.hasAddress = particularsCheckboxes.get(1).isChecked();
-                float[] particularWeight;
-                if (!Constants.isCdra && isCyberBullying()) {
-                    particularWeight = Constants.CYBER_REPONDENT_PARTICULARS_WEIGHTS;
+                if (!Constants.hasName) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(RespondentParticularActivity.this);
+                    builder.setMessage("You do not know the respondent's full name.\n\nChoosing yes will end the assessment and generate your report.")
+                            .setCancelable(true)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(RespondentParticularActivity.this, FinalReportActivity.class);
+                                    startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.setTitle("Are you sure?");
+                    alert.show();
                 } else {
-                    particularWeight = Constants.RESPONDENT_PARTICULARS_WEIGHTS;
+                    Constants.hasAddress = particularsCheckboxes.get(1).isChecked();
+                    float[] particularWeight;
+                    if (!Constants.isCdra && isCyberBullying()) {
+                        particularWeight = Constants.CYBER_REPONDENT_PARTICULARS_WEIGHTS;
+                    } else {
+                        particularWeight = Constants.RESPONDENT_PARTICULARS_WEIGHTS;
+                    }
+                    // this component has free initial "50" weight.
+                    double componentResult = (50 + ((particularsCheckboxes.get(2).isChecked()) ? particularWeight[0] : 0)
+                            + ((particularsCheckboxes.get(3).isChecked()) ? particularWeight[1] : 0));
+                    if (componentResult > 100) {
+                        Constants.componentResults[3] = 100;
+                    } else {
+                        Constants.componentResults[3] = componentResult;
+                    }
+                    Log.d("Particulars results", String.valueOf(Constants.componentResults[3]));
+                    Intent intent = new Intent(RespondentParticularActivity.this, PersonalServiceActivity.class);
+                    startActivity(intent);
                 }
-                // this component has free initial "50" weight.
-                double componentResult = (50 + ((particularsCheckboxes.get(2).isChecked()) ? particularWeight[0] : 0)
-                        + ((particularsCheckboxes.get(3).isChecked()) ? particularWeight[1] : 0));
-                if (componentResult > 100) {
-                    Constants.componentResults[3] = 100;
-                } else {
-                    Constants.componentResults[3] = componentResult;
-                }
-                Log.d("Particulars results", String.valueOf(Constants.componentResults[3]));
-                Intent intent = new Intent(RespondentParticularActivity.this, PersonalServiceActivity.class);
-                startActivity(intent);
             }
         });
     }

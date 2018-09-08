@@ -57,7 +57,7 @@
             android:id="@+id/respondent_checkBox2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Address (Mandatory)" />
+            android:text="Address" />
         <CheckBox
             android:id="@+id/respondent_checkBox3"
             android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package com.example.user.forecastx;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -118,11 +119,33 @@ public class PaymentActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Constants.totalApplicationCost = totalCost.getTotalCost();
                 Constants.canAfford = costYes.isChecked();
-                RadioButton selectedEpoRb = findViewById(epoRadioGroup.getCheckedRadioButtonId());
-                Constants.isEpoApplication = selectedEpoRb.getText().equals("Yes");
-                Log.d("canAfford", String.valueOf(Constants.canAfford));
-                Intent intent = new Intent(PaymentActivity.this, RespondentParticularActivity.class);
-                startActivity(intent);
+                if (!Constants.canAfford) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this);
+                    builder.setMessage("You are unable to afford the cost of application.\n\nChoosing yes will end the assessment and generate your report.")
+                            .setCancelable(true)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(PaymentActivity.this, FinalReportActivity.class);
+                                    startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.setTitle("Are you sure?");
+                    alert.show();
+                } else {
+                    RadioButton selectedEpoRb = findViewById(epoRadioGroup.getCheckedRadioButtonId());
+                    Constants.isEpoApplication = selectedEpoRb.getText().equals("Yes");
+                    Log.d("canAfford", String.valueOf(Constants.canAfford));
+                    Intent intent = new Intent(PaymentActivity.this, RespondentParticularActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }

@@ -12,6 +12,7 @@ import java.util.Arrays;
 
 public class FinalReportActivity extends AppCompatActivity {
     private TextView tv_finalProbability;
+    private TextView tv_system_message;
     private double finalProbability;
 
     @Override
@@ -20,6 +21,8 @@ public class FinalReportActivity extends AppCompatActivity {
         setContentView(R.layout.activity_final_report);
 
         tv_finalProbability = findViewById(R.id.final_probability);
+        tv_system_message = findViewById(R.id.system_message);
+
         finalProbability = Constants.computeFinalProbability();
         Log.d("Final probability", String.valueOf(finalProbability));
 

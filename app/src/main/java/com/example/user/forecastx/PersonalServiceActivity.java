@@ -22,9 +22,14 @@ public class PersonalServiceActivity extends AppCompatActivity {
         q5a = findViewById(R.id.personal_service_partA);
         personalDeliveryRb = findViewById(R.id.personal_service_yes);
 
-        if (!Constants.isCdra) {
+        if (Constants.hasAddress && Constants.isCdra) {
+            q5a.setText("5a) Are you able to find the Respondent to serve him the legal documents in person, or do so through a process server via his address?:");
+        } else if (Constants.hasAddress && !Constants.isCdra) {
             title.setText("Step 6/8: Personal Service");
-            q5a.setText("6a) Do you have the ability to serve legal documents to him personally?:");
+            q5a.setText("6a) Are you able to find the Respondent to serve him the legal documents in person, or do so through a process server via his address?:");
+        } else if (!Constants.hasAddress && !Constants.isCdra) {
+            title.setText("Step 6/8: Personal Service");
+            q5a.setText("6a) Are you able to find the Respondent to serve him the legal documents in person?:");
         }
 
         this.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
@@ -36,7 +41,14 @@ public class PersonalServiceActivity extends AppCompatActivity {
         this.findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Constants.canDeliver = personalDeliveryRb.isChecked() || Constants.hasAddress;
+                Constants.canDeliver = personalDeliveryRb.isChecked();
+                if (!Constants.canDeliver) {
+                    if (Constants.hasAddress) {
+                        // what
+                    } else {
+                        // what
+                    }
+                }
                 Log.d("canDeliver", String.valueOf(Constants.canDeliver));
                 Intent intent = new Intent(PersonalServiceActivity.this, PtcActivity.class);
                 startActivity(intent);

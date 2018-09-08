@@ -42,7 +42,7 @@ public class PtcActivity extends AppCompatActivity {
 
         if (!Constants.isCdra) {
             title.setText("Step 7/8: Pre-Trial Conference (PTC)");
-            q6a.setText("7a) Can you get the respondent down for Pre-Trial Conference?:");
+            q6a.setText("7a) Will the respondent come down for Pre-Trial Conference?:");
             q6b.setText("7b) How many times have you tried mediation with the respondent?");
         }
 
@@ -79,6 +79,8 @@ public class PtcActivity extends AppCompatActivity {
                         + (mediationSpinner.getSelectedItemPosition() * Constants.PTC_PER_MEDIATION_WEIGHT);
                 if (componentResult > 100) {
                     Constants.componentResults[4] = 100;
+                } else if (componentResult < 0) {
+                    Constants.componentResults[4] = 0;
                 } else {
                     Constants.componentResults[4] = componentResult;
                 }
