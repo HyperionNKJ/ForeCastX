@@ -68,6 +68,8 @@ public class EvidenceActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent intent = new Intent(EvidenceActivity.this, FinalReportActivity.class);
+                                    intent.putExtra("Forced probability", "Unlikely");
+                                    Constants.systemMessage.append("<br><br><u>Evidence</u><br><br>").append(getString(R.string.evidence_absence));
                                     startActivity(intent);
                                 }
                             })

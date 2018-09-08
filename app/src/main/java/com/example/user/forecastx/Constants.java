@@ -42,7 +42,7 @@ public class Constants {
     // FLAGS
     public static boolean isCdra;
     public static boolean isBefore2014;
-    public static boolean canAfford;    //
+    public static boolean canAfford;
     public static boolean hasName;
     public static boolean hasAddress;
     public static boolean canDeliver;
@@ -50,8 +50,10 @@ public class Constants {
     public static boolean isEpoApplication;     // Divide 1.5 probability because need prove imminent
     public static boolean hasEpoBefore;    // higher probability because granted protection before
 
+    public static StringBuilder systemMessage = new StringBuilder();
+
     public static double computeFinalProbability() {
-        if (isBefore2014 || !canAfford || !hasAddress || !hasName || !canDeliver) {
+        if (isBefore2014 && !isCdra) {
             return 0;
         }
         double finalProbability = 0;
