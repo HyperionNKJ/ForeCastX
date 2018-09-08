@@ -29,6 +29,15 @@ public class Cdra extends Act implements Parcelable {
         }
     }
 
+    protected boolean hasNoContext() {
+        for (boolean b : unreasonableInterferences) {
+            if (b) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Override
     public int describeContents() {
         return 0;

@@ -1,6 +1,8 @@
 package com.example.user.forecastx;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -50,14 +52,41 @@ public class EvidenceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boolean[] evidences = new boolean[Constants.NUM_OF_EVIDENCE];
+                boolean hasEvidence = false;
                 for (int i = 0; i < Constants.NUM_OF_EVIDENCE; i++) {
-                    evidences[i] = evidenceCheckboxes.get(i).isChecked();
+                    boolean hasThisEvidence = evidenceCheckboxes.get(i).isChecked();
+                    if (hasThisEvidence) {
+                        hasEvidence = true;
+                    }
+                    evidences[i] = hasThisEvidence;
                 }
-                double componentResult = act.generateEvidenceStrength(evidences);
-                Constants.componentResults[0] = componentResult;
-                Log.d("Evidence strength", String.valueOf(componentResult));
-                Intent intent = new Intent(EvidenceActivity.this, DateFrequencyActivity.class);
-                startActivity(intent);
+                if (!hasEvidence) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(EvidenceActivity.this);
+                    builder.setMessage("You did not select any evidence.\n\nChoosing yes will end the assessment and generate your report.")
+                            .setCancelable(true)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(EvidenceActivity.this, FinalReportActivity.class);
+                                    startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.setTitle("Are you sure?");
+                    alert.show();
+                } else {
+                    double componentResult = act.generateEvidenceStrength(evidences);
+                    Constants.componentResults[0] = componentResult;
+                    Log.d("Evidence strength", String.valueOf(componentResult));
+                    Intent intent = new Intent(EvidenceActivity.this, DateFrequencyActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }

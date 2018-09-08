@@ -1,5 +1,6 @@
 package com.example.user.forecastx;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -81,14 +82,38 @@ public class ContextActivity extends AppCompatActivity {
                     act = new Poha(interferencesOrHarassment);
                     Constants.isCdra = false;
                 }
-                Intent intent = new Intent(ContextActivity.this, EvidenceActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("act", act);
-                intent.putExtras(bundle);
-                startActivity(intent);
-                Log.d("Before", act.toString());
+
+                if (act.hasNoContext()) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(ContextActivity.this);
+                    builder.setMessage("You did not specify any cause of action.\n\nChoosing yes will end the assessment and generate your report.")
+                            .setCancelable(true)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent = new Intent(ContextActivity.this, FinalReportActivity.class);
+                                    startActivity(intent);
+                                }
+                            })
+                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            });
+                    AlertDialog alert = builder.create();
+                    alert.setTitle("Are you sure?");
+                    alert.show();
+                } else {
+                    Intent intent = new Intent(ContextActivity.this, EvidenceActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("act", act);
+                    intent.putExtras(bundle);
+                    Log.d("Before", act.toString());
+                    startActivity(intent);
+                }
             }
         });
+
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {

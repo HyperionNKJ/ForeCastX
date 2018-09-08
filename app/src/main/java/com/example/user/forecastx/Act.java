@@ -34,5 +34,6 @@ public abstract class Act implements Parcelable {
         }
     }
 
+    protected abstract boolean hasNoContext();
     protected abstract void generateCombinedEvidenceWeights();
 }

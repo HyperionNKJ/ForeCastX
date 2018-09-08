@@ -51,7 +51,7 @@
             android:id="@+id/evidence_checkBox1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hearsay" />
+            android:text="Personal testimony" />
         <CheckBox
             android:id="@+id/evidence_checkBox2"
             android:layout_width="match_parent"

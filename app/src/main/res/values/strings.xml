@@ -102,4 +102,25 @@ The Judge will give a date for the trial once all the criminal case disclosure p
         <item> 3 times</item>
         <item>4 times ++</item>
     </string-array>
+
+    <string name="disclaimer"><![CDATA[For more information on how to proceed with your claim, kindly contact your lawyer or legal representative.]]></string>
+    <string name="context_absence"><![CDATA[You need to know what cause of action you are bringing your claim under.]]></string>
+    <string name="evidence_personal_testimony"><![CDATA[The strength of your testimony as an evidence depends on how credible the judge perceives it to be.]]></string>
+    <string name="evidence_audio"><![CDATA[An audio recording may not persuade the court that the Respondent is the individual making the sounds complained of.]]></string>
+    <string name="evidence_photograph"><![CDATA[The strength of your photographs as an evidence depends on their clarity and originality.]]></string>
+    <string name="evidence_video"><![CDATA[Depending on the clarity of the video footage, and the ability to fully capture the offending act, this may constitute strong evidence that will assist in supporting your claim.]]></string>
+    <string name="evidence_medical_report"><![CDATA[If you can convince the court that the Respondent caused the injuries that you sought treatment for as presented in your medical report, this may be adequate in supporting your claim.]]></string>
+    <string name="evidence_psy_report"><![CDATA[If you can convince the court that the Respondent caused the injuries that you sought treatment for as presented in your psychiatrist/psychological reports, this may be adequate in supporting your claim.]]></string>
+    <string name="evidence_police_report"><![CDATA[As police reports are unilateral declaration by your goodself, the court may not be persuaded that the report is an objective description of the Respondent. ]]></string>
+    <string name="evidence_absence"><![CDATA[To convince the court to grant your application, you need to adduce some form of evidence to support your claim.]]></string>
+    <string name="particular_name_absence"><![CDATA[You need to know the respondent’s full name to file a case. Just the first name alone would not suffice. ]]></string>
+    <string name="time_before_2014"><![CDATA[As the Protection from Harassment Act was introduced in 2014, your claim may not be successful.]]></string>
+    <string name="time_last_occurence"><![CDATA[As the last date of the occurrence was over 2 years ago, the court may not grant a protection order. This is because the Act is structured to be retrospective in nature.]]></string>
+    <string name="time_low_frequency"><![CDATA[As the frequency of the occurrence is in the range of months, the court may not grant a protection order. this is because the court may not be satisfied that this event will recur in future.]]></string>
+    <string name="mediation_absence"><![CDATA[Courts are usually more willing to grant protection order where the parties have tried mediation before. You should try scheduling a mediation session at the Community Mediation Centre first.]]></string>
+    <string name="application_fee_cannot_afford"><![CDATA[The application fee for filing is $%.2f. For financial assistance, you may consider the Legal Aid Bureau. For assistance in filling up your form, you may also consider approaching the State Court Student Representative.]]></string>
+    <string name="personal_service_case1"><![CDATA[You indicated that you were unable to find the person again and unable to obtain the person\'s address. As you need to serve the documents either (1) personally on him/her, or (2) use a process server to deliver it to his/her address, it might be difficult to proceed with your claim.]]></string>
+    <string name="personal_service_case2"><![CDATA[You indicated that you were neither able to serve legal documents on him personally, nor able to do so through a process server. It might hence be difficult to proceed with your claim.]]></string>
+    <string name="closing"><![CDATA[We wish you all the best in proceeding with your application.]]></string>
+
 </resources>

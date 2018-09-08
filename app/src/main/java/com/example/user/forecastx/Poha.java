@@ -31,6 +31,15 @@ public class Poha extends Act implements Parcelable {
         }
     }
 
+    protected boolean hasNoContext() {
+        for (boolean b : harassmentType) {
+            if (b) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Override
     public int describeContents() {
         return 0;

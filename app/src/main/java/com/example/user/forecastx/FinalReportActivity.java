@@ -21,14 +21,20 @@ public class FinalReportActivity extends AppCompatActivity {
 
         tv_finalProbability = findViewById(R.id.final_probability);
         finalProbability = Constants.computeFinalProbability();
-        tv_finalProbability.setText(String.valueOf((int) Math.ceil(finalProbability)) + "%");
+        Log.d("Final probability", String.valueOf(finalProbability));
 
-        if (finalProbability >= 0 && finalProbability < 40) {
-            tv_finalProbability.setTextColor(Color.parseColor("#FFFF3B3B"));
-        } else if (finalProbability >= 40 && finalProbability < 75) {
-            tv_finalProbability.setTextColor(Color.parseColor("#FFFFAD2A"));
+        if (finalProbability >= 0 && finalProbability < 26) {
+            tv_finalProbability.setText("Unlikey");
+            tv_finalProbability.setTextColor(Color.parseColor("#FFFF0000"));
+        } else if (finalProbability >= 26 && finalProbability < 51) {
+            tv_finalProbability.setText("Probable");
+            tv_finalProbability.setTextColor(Color.parseColor("#FFF3A034"));
+        } else if (finalProbability >= 51 && finalProbability < 76 ){
+            tv_finalProbability.setText("Likely");
+            tv_finalProbability.setTextColor(Color.parseColor("#FFFFF12A"));
         } else {
-            tv_finalProbability.setTextColor(Color.parseColor("#FF07B20C"));
+            tv_finalProbability.setText("Highly Likely");
+            tv_finalProbability.setTextColor(Color.parseColor("#FF29B902"));
         }
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
