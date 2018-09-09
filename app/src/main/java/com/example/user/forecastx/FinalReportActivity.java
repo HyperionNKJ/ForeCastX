@@ -81,6 +81,8 @@ public class FinalReportActivity extends AppCompatActivity {
     }
 
     private void showSystemMessage() {
+        Constants.systemMessage.append("<h6><u>Disclaimer</u></h6>").append(getString(R.string.disclaimer));
+        Constants.systemMessage.append("<h6><u>Closing</u></h6>").append(getString(R.string.closing));
         tv_system_message.setText(Html.fromHtml(Constants.systemMessage.toString()));
     }
 }
