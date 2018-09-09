@@ -133,6 +133,6 @@ The Judge will give a date for the trial once all the criminal case disclosure p
 
     <string name="mediation_absence"><![CDATA[Courts are usually more willing to grant protection order where the parties have tried mediation before. You should try scheduling a mediation session at the Community Mediation Centre first.]]></string>
 
-    <string name="closing"><![CDATA[We wish you all the best in proceeding with your application.]]></string>
+    <string name="closing"><![CDATA[We wish you all the best in proceeding with your application.<br>]]></string>
 
 </resources>

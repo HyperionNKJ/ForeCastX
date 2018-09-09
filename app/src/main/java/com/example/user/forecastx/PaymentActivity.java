@@ -125,7 +125,6 @@ public class PaymentActivity extends AppCompatActivity {
                 Constants.totalApplicationCost = totalCost.getTotalCost();
                 Log.d("cost", String.valueOf(Constants.totalApplicationCost));
                 Constants.canAfford = costYes.isChecked();
-                editString.append("<h6><u>Cost of application</u></h6>");
                 if (!Constants.canAfford) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this);
                     builder.setMessage("You are unable to afford the cost of application.\n\nChoosing yes will end the assessment and generate your report.")
@@ -135,7 +134,7 @@ public class PaymentActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent intent = new Intent(PaymentActivity.this, FinalReportActivity.class);
                                     intent.putExtra("Forced probability", "Not Applicable");
-                                    editString.append(String.format(getString(R.string.application_fee_cannot_afford), Constants.totalApplicationCost));
+                                    editString.append("<h6><u>Cost of application</u></h6>").append(String.format(getString(R.string.application_fee_cannot_afford), Constants.totalApplicationCost));
                                     Constants.systemMessage = new StringBuilder(editString);
                                     editString = new StringBuilder(savedString);
                                     startActivity(intent);
@@ -154,7 +153,7 @@ public class PaymentActivity extends AppCompatActivity {
                     RadioButton selectedEpoRb = findViewById(epoRadioGroup.getCheckedRadioButtonId());
                     Constants.isEpoApplication = selectedEpoRb.getText().equals("Yes");
                     Log.d("canAfford", String.valueOf(Constants.canAfford));
-                    editString.append(String.format(getString(R.string.application_fee_can_afford), Constants.totalApplicationCost));
+                    editString.append("<h6><u>Cost of application</u></h6>").append(String.format(getString(R.string.application_fee_can_afford), Constants.totalApplicationCost));
                     Constants.systemMessage = new StringBuilder(editString);
                     editString = new StringBuilder(savedString);
                     Intent intent = new Intent(PaymentActivity.this, RespondentParticularActivity.class);

@@ -57,12 +57,16 @@ public class EvidenceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boolean[] evidences = new boolean[Constants.NUM_OF_EVIDENCE];
-                editString.append("<h6><u>Evidence</u></h6>");
                 boolean hasEvidence = false;
+                boolean hasEvidenceTitle = false;
                 String[] evidenceMessages = getResources().getStringArray(R.array.evidence_message);
                 for (int i = 0; i < Constants.NUM_OF_EVIDENCE; i++) {
                     boolean hasThisEvidence = evidenceCheckboxes.get(i).isChecked();
                     if (hasThisEvidence) {
+                        if (!hasEvidenceTitle) {
+                            editString.append("<h6><u>Evidence</u></h6>");
+                            hasEvidenceTitle = true;
+                        }
                         hasEvidence = true;
                         editString.append(evidenceMessages[i]);
                     }
@@ -77,7 +81,7 @@ public class EvidenceActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent intent = new Intent(EvidenceActivity.this, FinalReportActivity.class);
                                     intent.putExtra("Forced probability", "Unlikely");
-                                    editString.append(getString(R.string.evidence_absence));
+                                    editString.append("<h6><u>Evidence</u></h6>").append(getString(R.string.evidence_absence));
                                     Constants.systemMessage = new StringBuilder(editString);
                                     editString = new StringBuilder(savedString);
                                     startActivity(intent);

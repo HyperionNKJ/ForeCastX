@@ -30,10 +30,10 @@ public class PersonalServiceActivity extends AppCompatActivity {
         personalDeliveryRb = findViewById(R.id.personal_service_yes);
 
         if (Constants.hasAddress && Constants.isCdra) {
-            q5a.setText("5a) Are you able to find the Respondent to serve him the legal documents in person, or do so through a process server via his address?:");
+            q5a.setText("5a) Are you able to find the Respondent to serve him the legal documents in person, or do so through a process server (e.g. postal service) via his address?:");
         } else if (Constants.hasAddress && !Constants.isCdra) {
             title.setText("Step 6/8: Personal Service");
-            q5a.setText("6a) Are you able to find the Respondent to serve him the legal documents in person, or do so through a process server via his address?:");
+            q5a.setText("6a) Are you able to find the Respondent to serve him the legal documents in person, or do so through a process server (e.g. postal service) via his address?:");
         } else if (!Constants.hasAddress && !Constants.isCdra) {
             title.setText("Step 6/8: Personal Service");
             q5a.setText("6a) Are you able to find the Respondent to serve him the legal documents in person?:");
