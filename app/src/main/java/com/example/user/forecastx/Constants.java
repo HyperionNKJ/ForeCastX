@@ -71,10 +71,10 @@ public class Constants {
         if (!respondentIsAttending) {
             return 100;
         } else {
-            finalProbability /= 1.2;
+            finalProbability /= 1.15;
         }
         if (isEpoApplication) {
-            finalProbability /= 1.5;
+            finalProbability /= 1.4;
         } else if (hasEpoBefore) {
             finalProbability *= 1.3;
         }

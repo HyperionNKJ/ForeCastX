@@ -31,6 +31,7 @@ public class FinalReportActivity extends AppCompatActivity {
         } else {
             finalProbability = Constants.computeFinalProbability();
             setProbability();
+            Log.d("Component strength", Arrays.toString(Constants.componentResults));
             Log.d("Final probability", String.valueOf(finalProbability));
         }
 
