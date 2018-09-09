@@ -49,11 +49,13 @@ public class FinalReportActivity extends AppCompatActivity {
     }
 
     private void setProbability() {
-        if (finalProbability >= 0 && finalProbability < 26) {
+        if (finalProbability >= 0 && finalProbability < 21) {
+            tv_finalProbability.setText("Highly Unlikely");
+        } else if (finalProbability >= 21 && finalProbability < 41) {
             tv_finalProbability.setText("Unlikely");
-        } else if (finalProbability >= 26 && finalProbability < 51) {
+        } else if (finalProbability >= 41 && finalProbability < 61) {
             tv_finalProbability.setText("Probable");
-        } else if (finalProbability >= 51 && finalProbability < 76 ){
+        } else if (finalProbability >= 61 && finalProbability < 81 ){
             tv_finalProbability.setText("Likely");
         } else {
             tv_finalProbability.setText("Highly Likely");
@@ -62,17 +64,20 @@ public class FinalReportActivity extends AppCompatActivity {
 
     private void setProbabilityColour() {
         switch(tv_finalProbability.getText().toString()) {
-            case "Unlikely":
+            case "Highly Unlikely":
                 tv_finalProbability.setTextColor(Color.parseColor("#FFFF0000"));
                 break;
+            case "Unlikely":
+                tv_finalProbability.setTextColor(Color.parseColor("#FFEE00FF"));
+                break;
             case "Probable":
-                tv_finalProbability.setTextColor(Color.parseColor("#FFF3A034"));
+                tv_finalProbability.setTextColor(Color.parseColor("#FFFF9900"));
                 break;
             case "Likely":
-                tv_finalProbability.setTextColor(Color.parseColor("#FFFFF12A"));
+                tv_finalProbability.setTextColor(Color.parseColor("#FF00FF0D"));
                 break;
             case "Highly Likely":
-                tv_finalProbability.setTextColor(Color.parseColor("#FF29B902"));
+                tv_finalProbability.setTextColor(Color.parseColor("#FF00C800"));
                 break;
             default:
                 tv_finalProbability.setTextColor(Color.parseColor("#FF5F50FF"));
