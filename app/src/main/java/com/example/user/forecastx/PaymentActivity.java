@@ -30,11 +30,16 @@ public class PaymentActivity extends AppCompatActivity {
     private TextView q3c;
     private TotalCost totalCost;
     private RadioButton costYes;
+    private StringBuilder savedString;
+    private StringBuilder editString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
+        savedString = new StringBuilder(Constants.systemMessage);
+        editString = new StringBuilder(savedString);
 
         title = findViewById(R.id.payment_title);
         q3a = findViewById(R.id.payment_partA);
@@ -118,7 +123,9 @@ public class PaymentActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Constants.totalApplicationCost = totalCost.getTotalCost();
+                Log.d("cost", String.valueOf(Constants.totalApplicationCost));
                 Constants.canAfford = costYes.isChecked();
+                editString.append("<h6><u>Cost of application</u></h6>");
                 if (!Constants.canAfford) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(PaymentActivity.this);
                     builder.setMessage("You are unable to afford the cost of application.\n\nChoosing yes will end the assessment and generate your report.")
@@ -127,6 +134,10 @@ public class PaymentActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent intent = new Intent(PaymentActivity.this, FinalReportActivity.class);
+                                    intent.putExtra("Forced probability", "Not Applicable");
+                                    editString.append(String.format(getString(R.string.application_fee_cannot_afford), Constants.totalApplicationCost));
+                                    Constants.systemMessage = new StringBuilder(editString);
+                                    editString = new StringBuilder(savedString);
                                     startActivity(intent);
                                 }
                             })
@@ -143,6 +154,9 @@ public class PaymentActivity extends AppCompatActivity {
                     RadioButton selectedEpoRb = findViewById(epoRadioGroup.getCheckedRadioButtonId());
                     Constants.isEpoApplication = selectedEpoRb.getText().equals("Yes");
                     Log.d("canAfford", String.valueOf(Constants.canAfford));
+                    editString.append(String.format(getString(R.string.application_fee_can_afford), Constants.totalApplicationCost));
+                    Constants.systemMessage = new StringBuilder(editString);
+                    editString = new StringBuilder(savedString);
                     Intent intent = new Intent(PaymentActivity.this, RespondentParticularActivity.class);
                     startActivity(intent);
                 }
@@ -166,6 +180,7 @@ public class PaymentActivity extends AppCompatActivity {
             epoQty = findViewById(R.id.epo_quantity);
             epoCost = findViewById(R.id.epo_cost);
             tv_totalCost = findViewById(R.id.total_cost);
+            totalCost = Constants.GENERAL_COST_OF_APPLICATION;
         }
 
         public double getTotalCost() {

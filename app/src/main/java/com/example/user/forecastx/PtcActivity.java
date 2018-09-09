@@ -21,12 +21,17 @@ public class PtcActivity extends AppCompatActivity {
     private TextView q6b;
     private Spinner mediationSpinner;
     private TextView readMoreAboutPtc;
+    private StringBuilder savedString;
+    private StringBuilder editString;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ptc);
+
+        savedString = new StringBuilder(Constants.systemMessage);
+        editString = new StringBuilder(savedString);
 
         title = findViewById(R.id.Ptc_title);
         q6a = findViewById(R.id.Ptc_partA);
@@ -75,8 +80,9 @@ public class PtcActivity extends AppCompatActivity {
         this.findViewById(R.id.next).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int spinnerPosition = mediationSpinner.getSelectedItemPosition();
                 double componentResult = ((ptcYesRb.isChecked()) ? Constants.PTC_RESPONDENT_CAN_ATTEND_WEIGHT : 0)
-                        + (mediationSpinner.getSelectedItemPosition() * Constants.PTC_PER_MEDIATION_WEIGHT);
+                        + (spinnerPosition * Constants.PTC_PER_MEDIATION_WEIGHT);
                 if (componentResult > 100) {
                     Constants.componentResults[4] = 100;
                 } else if (componentResult < 0) {
@@ -85,7 +91,12 @@ public class PtcActivity extends AppCompatActivity {
                     Constants.componentResults[4] = componentResult;
                 }
                 Log.d("PtcActivity strength", String.valueOf(Constants.componentResults[4]));
+                if (spinnerPosition == 0) {
+                    editString.append("<h6><u>Pre-Trial Conference</u></h6>").append(getString(R.string.mediation_absence));
+                }
                 Intent intent = new Intent(PtcActivity.this, CourtHearingActivity.class);
+                Constants.systemMessage = new StringBuilder(editString);
+                editString = new StringBuilder(savedString);
                 startActivity(intent);
             }
         });

@@ -21,6 +21,8 @@ public class RespondentParticularActivity extends AppCompatActivity {
     private TextView q4a;
     private ArrayList<CheckBox> particularsCheckboxes;
     private ConstraintLayout constraintLayout;
+    private StringBuilder savedString;
+    private StringBuilder editString;
 
     // cyberbullying for POHA
     private TextView q5b;
@@ -34,6 +36,9 @@ public class RespondentParticularActivity extends AppCompatActivity {
         title = findViewById(R.id.respondent_title);
         q4a = findViewById(R.id.respondent_partA);
         constraintLayout = findViewById(R.id.respondent_constraint);
+
+        savedString = new StringBuilder(Constants.systemMessage);
+        editString = new StringBuilder(savedString);
 
         if (!Constants.isCdra) {
             title.setText("Step 5/8: Respondent's particulars");
@@ -75,6 +80,10 @@ public class RespondentParticularActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent intent = new Intent(RespondentParticularActivity.this, FinalReportActivity.class);
+                                    intent.putExtra("Forced probability", "Not Applicable");
+                                    editString.append("<h6><u>Respondent's particular</u></h6>").append(getString(R.string.particular_name_absence));
+                                    Constants.systemMessage = new StringBuilder(editString);
+                                    editString = new StringBuilder(savedString);
                                     startActivity(intent);
                                 }
                             })
@@ -104,6 +113,7 @@ public class RespondentParticularActivity extends AppCompatActivity {
                         Constants.componentResults[3] = componentResult;
                     }
                     Log.d("Particulars results", String.valueOf(Constants.componentResults[3]));
+                    Constants.systemMessage = new StringBuilder(editString);
                     Intent intent = new Intent(RespondentParticularActivity.this, PersonalServiceActivity.class);
                     startActivity(intent);
                 }

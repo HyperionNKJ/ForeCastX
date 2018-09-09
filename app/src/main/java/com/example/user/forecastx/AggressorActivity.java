@@ -10,11 +10,16 @@ import android.widget.RadioGroup;
 
 public class AggressorActivity extends AppCompatActivity {
     private RadioGroup aggressorRg;
+    private StringBuilder savedString;
+    private StringBuilder editString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aggressor);
+
+        savedString = new StringBuilder(Constants.systemMessage);
+        editString = new StringBuilder(savedString);
 
         aggressorRg = findViewById(R.id.aggressor_radioGroup);
         this.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
@@ -29,6 +34,7 @@ public class AggressorActivity extends AppCompatActivity {
                 double componentResult = generateComponentResult();
                 Constants.componentResults[2] = componentResult;
                 Log.d("Aggressor strength", String.valueOf(componentResult));
+                Constants.systemMessage = new StringBuilder(editString);
                 Intent intent = new Intent(AggressorActivity.this, PaymentActivity.class);
                 startActivity(intent);
             }

@@ -18,11 +18,17 @@ public class CourtHearingActivity extends AppCompatActivity {
     private TextView q8b;
     private RadioGroup epoBeforeRadioGroup;
     private ConstraintLayout constraintLayout;
+    private StringBuilder savedString;
+    private StringBuilder editString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_court_hearing);
+
+        savedString = new StringBuilder(Constants.systemMessage);
+        editString = new StringBuilder(savedString);
+
 
         title = findViewById(R.id.court_hearing_title);
         q7a = findViewById(R.id.court_hearing_partA);
@@ -58,6 +64,7 @@ public class CourtHearingActivity extends AppCompatActivity {
                 Constants.hasEpoBefore = hasEpoBefore();
                 Log.d("Respondent attending", String.valueOf(Constants.respondentIsAttending));
                 Log.d("has Epo Before", String.valueOf(Constants.hasEpoBefore));
+                Constants.systemMessage = new StringBuilder(editString);
                 Intent intent = new Intent(CourtHearingActivity.this, FinalReportActivity.class);
                 startActivity(intent);
             }
