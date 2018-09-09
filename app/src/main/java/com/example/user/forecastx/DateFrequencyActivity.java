@@ -36,11 +36,16 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
     private TextView question3cMessage;
     private Spinner question3cSpinner;
     private ConstraintLayout constraintLayout;
+    private StringBuilder savedString;
+    private StringBuilder editString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_frequency);
+
+        savedString = new StringBuilder(Constants.systemMessage);
+        editString = new StringBuilder(savedString);
 
         TextView title = findViewById(R.id.date_and_frequency_title);
         if (!Constants.isCdra) {
@@ -110,12 +115,28 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
                 double componentResult = generateComponentResult();
                 Constants.componentResults[1] = componentResult;
                 Log.d("DateFrequency strength", String.valueOf(componentResult));
+
+                if ((!Constants.isCdra && Constants.isBefore2014) || Constants.isOver2YearsAgo || Constants.hasLowFrequency) {
+                    editString.append("<h6><u>Date and Frequency of Occurrence</u></h6>");
+                }
+                if (!Constants.isCdra && Constants.isBefore2014) {
+                    editString.append(getString(R.string.time_before_2014));
+                }
+                if (Constants.isOver2YearsAgo) {
+                    editString.append(getString(R.string.time_last_occurence));
+                }
+                if (Constants.hasLowFrequency) {
+                    editString.append(getString(R.string.time_low_frequency));
+                }
+
                 Intent intent;
-                if (Constants.isCdra) {     // if CDRA, then no need for aggressor component. Jump straight to payment component.
+                if (Constants.isCdra) {  // if CDRA, then no need for aggressor component. Jump straight to payment component.
                     intent = new Intent(DateFrequencyActivity.this, PaymentActivity.class);
                 } else {
                     intent = new Intent(DateFrequencyActivity.this, AggressorActivity.class);
                 }
+                Constants.systemMessage = new StringBuilder(editString);
+                editString = new StringBuilder(savedString);
                 startActivity(intent);
             }
         });
@@ -148,6 +169,9 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
         long diffInMillies = Calendar.getInstance().getTimeInMillis() - lastOccurrenceDate.getTimeInMillis();
         long numOfDaysAgo = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
 
+        // checks if last occurrence date is 2 years ago
+        Constants.isOver2YearsAgo = numOfDaysAgo > 730;
+
         // checks if last occurrence date is before POHA's effective date of 2014
         Constants.isBefore2014 = lastOccurrenceDate.get(Calendar.YEAR) < 2014;
 
@@ -158,6 +182,8 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
         // gets the multiplier for num of time and frequency
         int seekbarProgress = question3bSeekbar.getProgress();
         int spinnerProgress = question3cSpinner.getSelectedItemPosition();
+        Constants.hasLowFrequency = spinnerProgress > 3;
+
         double numOfTimeMultiplier = (Constants.isCdra) ? Constants.CDRA_NUM_OF_TIME_MULTIPLIER[seekbarProgress] : Constants.POHA_NUM_OF_TIME_MULTIPLIER[seekbarProgress];
         double frequencyMultiplier;
         if (seekbarProgress == 0) {

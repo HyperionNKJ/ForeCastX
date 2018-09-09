@@ -41,7 +41,9 @@ public class Constants {
 
     // FLAGS
     public static boolean isCdra;
+    public static boolean isOver2YearsAgo;
     public static boolean isBefore2014;
+    public static boolean hasLowFrequency;
     public static boolean canAfford;
     public static boolean hasName;
     public static boolean hasAddress;

@@ -28,11 +28,16 @@ public class ContextActivity extends AppCompatActivity {
     private LinearLayout cdra_checkboxes;
     private LinearLayout poha_checkboxes;
     private ArrayList<CheckBox> checkBoxes;
+    private StringBuilder savedString;
+    private StringBuilder editString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_context);
+
+        savedString = new StringBuilder(Constants.systemMessage);
+        editString = new StringBuilder(savedString);
 
         rg = this.findViewById(R.id.radioGroup);
         rb_cdra = this.findViewById(R.id.radioButton1);
@@ -91,6 +96,10 @@ public class ContextActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent intent = new Intent(ContextActivity.this, FinalReportActivity.class);
+                                    intent.putExtra("Forced probability", "Not Applicable");
+                                    editString.append("<h6><u>Context</u></h6>").append(getString(R.string.context_absence));
+                                    Constants.systemMessage = new StringBuilder(editString);
+                                    editString = new StringBuilder(savedString);
                                     startActivity(intent);
                                 }
                             })
@@ -106,6 +115,7 @@ public class ContextActivity extends AppCompatActivity {
                 } else {
                     Intent intent = new Intent(ContextActivity.this, EvidenceActivity.class);
                     Bundle bundle = new Bundle();
+                    Constants.systemMessage = new StringBuilder(editString);    // need to update else next component will repeat system message when retrieving from Constants.systemMessage
                     bundle.putParcelable("act", act);
                     intent.putExtras(bundle);
                     Log.d("Before", act.toString());

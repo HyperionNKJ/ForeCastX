@@ -15,11 +15,16 @@ import java.util.ArrayList;
 public class EvidenceActivity extends AppCompatActivity {
     private Act act;
     private ArrayList<CheckBox> evidenceCheckboxes;
+    private StringBuilder savedString;
+    private StringBuilder editString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_evidence);
+
+        savedString = new StringBuilder(Constants.systemMessage);
+        editString = new StringBuilder(savedString);
 
         TextView title = findViewById(R.id.evidence_title);
         if (!Constants.isCdra) {
@@ -52,11 +57,14 @@ public class EvidenceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boolean[] evidences = new boolean[Constants.NUM_OF_EVIDENCE];
+                editString.append("<h6><u>Evidence</u></h6>");
                 boolean hasEvidence = false;
+                String[] evidenceMessages = getResources().getStringArray(R.array.evidence_message);
                 for (int i = 0; i < Constants.NUM_OF_EVIDENCE; i++) {
                     boolean hasThisEvidence = evidenceCheckboxes.get(i).isChecked();
                     if (hasThisEvidence) {
                         hasEvidence = true;
+                        editString.append(evidenceMessages[i]);
                     }
                     evidences[i] = hasThisEvidence;
                 }
@@ -69,7 +77,9 @@ public class EvidenceActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     Intent intent = new Intent(EvidenceActivity.this, FinalReportActivity.class);
                                     intent.putExtra("Forced probability", "Unlikely");
-                                    Constants.systemMessage.append("<br><br><u>Evidence</u><br><br>").append(getString(R.string.evidence_absence));
+                                    editString.append(getString(R.string.evidence_absence));
+                                    Constants.systemMessage = new StringBuilder(editString);
+                                    editString = new StringBuilder(savedString);
                                     startActivity(intent);
                                 }
                             })
@@ -86,6 +96,8 @@ public class EvidenceActivity extends AppCompatActivity {
                     double componentResult = act.generateEvidenceStrength(evidences);
                     Constants.componentResults[0] = componentResult;
                     Log.d("Evidence strength", String.valueOf(componentResult));
+                    Constants.systemMessage = new StringBuilder(editString);
+                    editString = new StringBuilder(savedString);
                     Intent intent = new Intent(EvidenceActivity.this, DateFrequencyActivity.class);
                     startActivity(intent);
                 }
