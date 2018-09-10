@@ -29,7 +29,7 @@ public class Constants {
     public static final double[] CDRA_NUM_OF_TIME_MULTIPLIER = {0.5,0.75,1,1.05,1.1,1.15,1.2,1.3,1.4,1.5};
     public static final double[] POHA_NUM_OF_TIME_MULTIPLIER = {0.8,0.9,1,1.25,1.5};
     public static final double[] CDRA_FREQUENCY_MULTIPLIER = {1.3,1.15,1,0.8,0.6,0.4};
-    public static final double[] POHA_FREQUENCY_MULTIPLIER = {1.3,1.15,1,0.8,0.6,0.4};
+    public static final double[] POHA_FREQUENCY_MULTIPLIER = {1.8,1.65,1.5,1.3,1,0.8};
     public static final float[] RESPONDENT_PARTICULARS_WEIGHTS = {25, 25};   // respondent particulars component will have free "50" weight
     public static final float[] CYBER_REPONDENT_PARTICULARS_WEIGHTS = {25, 100};
     public static final float PTC_RESPONDENT_CAN_ATTEND_WEIGHT = -10;
@@ -71,10 +71,10 @@ public class Constants {
         if (!respondentIsAttending) {
             return 100;
         } else {
-            finalProbability /= 1.15;
+            finalProbability /= 1.1;
         }
         if (isEpoApplication) {
-            finalProbability /= 1.4;
+            finalProbability /= 1.2;
         } else if (hasEpoBefore) {
             finalProbability *= 1.3;
         }
