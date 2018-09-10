@@ -103,7 +103,16 @@ The Judge will give a date for the trial once all the criminal case disclosure p
         <item>4 times ++</item>
     </string-array>
 
-    <string name="disclaimer"><![CDATA[For more information on how to proceed with your claim, kindly contact your lawyer or legal representative.]]></string>
+    <string name="agreement_meesage"><![CDATA[I agree to the ForeCastX <b><u>Terms of Service</u></b>.]]></string>
+    <string name="terms_and_condition"><![CDATA[<h5>Terms of Service</h5>
+<p>Please read these Terms of Service carefully before using ForeCastX. </p>
+<p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
+<p>By accessing or using the Service, you agree to indemnify and hold harmless ForeCastX, and its team from and against any and all claims, actions, demands, proceedings, liabilities or judgments, and against all losses, taxes, expenses, costs, legal fees, and liabilities (present, future, contingent or otherwise on an indemnity basis), which may be suffered or incurred by any of the ForeCastX team members as a result of the Service. If you disagree with any part of the terms then you may not access the Service. </p>
+<h5>Changes</h5>
+<p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, please stop using the Service.</p>
+<h5>Contact</h5>
+<p>If you have any questions about these Terms, please contact us. For more information on how to proceed with your claim, kindly contact your lawyer or legal representative.</p>
+]]></string>
 
     <string name="context_absence"><![CDATA[You need to know what cause of action you are bringing your claim under.]]></string>
 
