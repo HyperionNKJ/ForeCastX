@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         agreementCheckbox = findViewById(R.id.agree_checkbox);
         startAssessmentButton = findViewById(R.id.start_assessment);
 
-        agreementMessage.setText(Html.fromHtml(getString(R.string.agreement_meesage)));
+        agreementMessage.setText(Html.fromHtml(getString(R.string.agreement_message)));
         agreementMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

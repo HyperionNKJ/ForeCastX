@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -48,10 +49,6 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
         editString = new StringBuilder(savedString);
 
         TextView title = findViewById(R.id.date_and_frequency_title);
-        if (!Constants.isCdra) {
-            title.setText("Step 2/8: Date and Frequency of Occurrence");
-        }
-
         question3b = findViewById(R.id.three_3b);
         question3bFrequency = findViewById(R.id.three_3b_frequency);
         question3bSeekbar = findViewById(R.id.three_3b_seekBar);
@@ -62,10 +59,15 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
         constraintLayout = findViewById(R.id.constraint_layout);
 
         if (!Constants.isCdra) {
+            title.setText("Step 2/8: Date and Frequency of Occurrence");
             question3b.setText("2b) How many times were you harassed?:");
             question3bSeekbar.setMax(Constants.NUM_OF_OPTIONS_FOR_POHA_FREQUENCY - 1);
             question3c.setText("2c) On average, what was the frequency of harassment?");
             question3cMessage.setText("I was harassed once every ");
+            ArrayAdapter<CharSequence> adapterForCell = ArrayAdapter.createFromResource(this,
+                    R.array.poha_interval, R.layout.dropdown_item);
+            adapterForCell.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            question3cSpinner.setAdapter(adapterForCell);
         }
 
         question3bSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -182,7 +184,7 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
         // gets the multiplier for num of time and frequency
         int seekbarProgress = question3bSeekbar.getProgress();
         int spinnerProgress = question3cSpinner.getSelectedItemPosition();
-        Constants.hasLowFrequency = spinnerProgress > 3;
+        Constants.hasLowFrequency = Constants.isCdra ? spinnerProgress > 3 : spinnerProgress > 2;
 
         double numOfTimeMultiplier = (Constants.isCdra) ? Constants.CDRA_NUM_OF_TIME_MULTIPLIER[seekbarProgress] : Constants.POHA_NUM_OF_TIME_MULTIPLIER[seekbarProgress];
         double frequencyMultiplier;
@@ -191,6 +193,7 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
         } else {
             frequencyMultiplier =  (Constants.isCdra) ? Constants.CDRA_FREQUENCY_MULTIPLIER[spinnerProgress] : Constants.POHA_FREQUENCY_MULTIPLIER[spinnerProgress];
         }
+        Log.d("f multiplier", String.valueOf(frequencyMultiplier));
         double finalDateFrequencyStrength = ageWeight * numOfTimeMultiplier * frequencyMultiplier;
         return (finalDateFrequencyStrength > 100) ? 100 : finalDateFrequencyStrength;
     }

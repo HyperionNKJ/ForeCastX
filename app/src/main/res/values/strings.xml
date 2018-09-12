@@ -86,13 +86,20 @@ the District Court may make an expedited protection order for all or any of the 
 The accused person or his lawyer will have to attend the PTC together with the prosecution. At the PTC, the Judge will be informed of the nature of the evidence that will be tendered by the prosecution and by the accused person or his lawyer. Both parties will also indicate the number and names of the witnesses that they intend to call during the trial. This will be done under the Criminal Case Disclosure Conference process for those cases that are subject to this process.<br><br>
 The Judge will give a date for the trial once all the criminal case disclosure procedures have been complied with and the parties are ready to proceed to trial.<br>]]></string>
 
-    <string-array name="interval">
+    <string-array name="cdra_interval">
         <item>1 day or less</item>
         <item>2 to 7 days</item>
         <item>8 to 14 days</item>
         <item>15 to 28 days</item>
         <item>1 to 2 months</item>
         <item>3 months ++</item>
+    </string-array>
+
+    <string-array name="poha_interval">
+        <item>1 week or less</item>
+        <item>1 to 2 weeks</item>
+        <item>2 to 4 weeks</item>
+        <item>4 weeks ++</item>
     </string-array>
 
     <string-array name="mediation">
@@ -103,7 +110,8 @@ The Judge will give a date for the trial once all the criminal case disclosure p
         <item>4 times ++</item>
     </string-array>
 
-    <string name="agreement_meesage"><![CDATA[I agree to the ForeCastX <b><u>Terms of Service</u></b>.]]></string>
+    <string name="starting_message"><![CDATA[Please read, understand and agree to the ForeCastX Terms of Service before starting the assessment.]]></string>
+    <string name="agreement_message"><![CDATA[I agree to the ForeCastX <b><u>Terms of Service</u></b>.]]></string>
     <string name="terms_and_condition"><![CDATA[<h5>Terms of Service</h5>
 <p>Please read these Terms of Service carefully before using ForeCastX. </p>
 <p>Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.</p>
@@ -141,7 +149,5 @@ The Judge will give a date for the trial once all the criminal case disclosure p
     <string name="personal_service_case2"><![CDATA[You indicated that you were neither able to find the person to serve legal documents on him personally, nor able to do so through a process server via his address. It might hence be difficult to proceed with your claim.]]></string>
 
     <string name="mediation_absence"><![CDATA[Courts are usually more willing to grant protection order where the parties have tried mediation before. You should try scheduling a mediation session at the Community Mediation Centre first.]]></string>
-
-    <string name="closing"><![CDATA[We wish you all the best in proceeding with your application.<br>]]></string>
-
+    <string name="closing_message"><![CDATA[For more information on how to proceed with your claim, kindly contact your lawyer or legal representative. <br>We wish you all the best in proceeding with your application.]]></string>
 </resources>
