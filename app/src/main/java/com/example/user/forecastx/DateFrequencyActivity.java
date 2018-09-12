@@ -2,29 +2,21 @@ package com.example.user.forecastx;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.provider.CalendarContract;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.CalendarView;
 import android.widget.DatePicker;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class DateFrequencyActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
@@ -62,7 +54,7 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
             title.setText("Step 2/8: Date and Frequency of Occurrence");
             question3b.setText("2b) How many times were you harassed?:");
             question3bSeekbar.setMax(Constants.NUM_OF_OPTIONS_FOR_POHA_FREQUENCY - 1);
-            question3c.setText("2c) On average, what was the frequency of harassment?");
+            question3c.setText("2c) On average, what was the frequency of harassment in the past?");
             question3cMessage.setText("I was harassed once every ");
             ArrayAdapter<CharSequence> adapterForCell = ArrayAdapter.createFromResource(this,
                     R.array.poha_interval, R.layout.dropdown_item);
@@ -135,7 +127,7 @@ public class DateFrequencyActivity extends AppCompatActivity implements DatePick
                 if (Constants.isCdra) {  // if CDRA, then no need for aggressor component. Jump straight to payment component.
                     intent = new Intent(DateFrequencyActivity.this, PaymentActivity.class);
                 } else {
-                    intent = new Intent(DateFrequencyActivity.this, AggressorActivity.class);
+                    intent = new Intent(DateFrequencyActivity.this, ReharassmentActivity.class);
                 }
                 Constants.systemMessage = new StringBuilder(editString);
                 editString = new StringBuilder(savedString);

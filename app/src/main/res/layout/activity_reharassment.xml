@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AggressorActivity">
+    tools:context=".ReharassmentActivity">
 
     <TextView
         android:id="@+id/textView4"
@@ -13,7 +13,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Step 3/8: Relationship with aggressor"
+        android:text="Step 3/8: Likelihood of reoccurrence"
         android:textColor="@android:color/black"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="3a) Please indicate your relationship with the aggressor:"
+        android:text="3a) Are you likely to be harassed again by this person in the future?:"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -34,42 +34,34 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <RadioGroup
-        android:id="@+id/aggressor_radioGroup"
+        android:id="@+id/reoccurrence_radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:checkedButton="@+id/spouse"
+        android:checkedButton="@+id/ro_yes"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <RadioButton
-            android:id="@+id/spouse"
+            android:id="@+id/ro_yes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ex-spouse" />
+            android:text="Yes" />
 
         <RadioButton
+            android:id="@+id/ro_maybe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Person involved in extra-marital affairs" />
+            android:text="Maybe" />
 
         <RadioButton
+            android:id="@+id/ro_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Colleague" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Family members / Relatives" />
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Random Stranger" />
+            android:text="No" />
     </RadioGroup>
 
     <LinearLayout
@@ -84,7 +76,7 @@
         android:weightSum="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aggressor_radioGroup">
+        app:layout_constraintTop_toBottomOf="@+id/reoccurrence_radioGroup">
 
         <Button
             android:id="@+id/back"
