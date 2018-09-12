@@ -137,7 +137,7 @@ The Judge will give a date for the trial once all the criminal case disclosure p
     <string name="evidence_absence"><![CDATA[To convince the court to grant your application, you need to adduce some form of evidence to support your claim.]]></string>
 
     <string name="time_before_2014"><![CDATA[As the Protection from Harassment Act was introduced in 2014, your claim may not be successful.<br><br>]]></string>
-    <string name="time_last_occurence"><![CDATA[As the last date of the occurrence was over 2 years ago, the court may not grant a protection order. This is because the Act is structured to be retrospective in nature.<br><br>]]></string>
+    <string name="time_last_occurence"><![CDATA[As the last date of the occurrence was over 2 years ago, the court may not grant a protection order.<br><br>]]></string>
     <string name="time_low_frequency"><![CDATA[As the frequency of the occurrence is in the range of months, the court may not grant a protection order. This is because the court may not be satisfied that this event will recur in future.<br><br>]]></string>
 
     <string name="application_fee_cannot_afford"><![CDATA[The mandatory application fee for filing is $%.2f. You indicated that you are not able to afford it. We advise you to consider the Legal Aid Bureau for financial assistance. For assistance in filling up your form, you may also consider approaching the State Court Student Representative.]]></string>
