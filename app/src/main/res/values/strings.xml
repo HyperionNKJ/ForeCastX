@@ -87,19 +87,19 @@ The accused person or his lawyer will have to attend the PTC together with the p
 The Judge will give a date for the trial once all the criminal case disclosure procedures have been complied with and the parties are ready to proceed to trial.<br>]]></string>
 
     <string-array name="cdra_interval">
-        <item>1 day or less</item>
-        <item>2 to 7 days</item>
-        <item>8 to 14 days</item>
-        <item>15 to 28 days</item>
-        <item>1 to 2 months</item>
-        <item>3 months ++</item>
+        <item>&lt; 1 day</item>
+        <item>2 – 7 days</item>
+        <item>8 – 14 days</item>
+        <item>15 – 28 days</item>
+        <item>1 – 2 months</item>
+        <item>&gt; 3 months</item>
     </string-array>
 
     <string-array name="poha_interval">
-        <item>1 week or less</item>
-        <item>1 to 2 weeks</item>
-        <item>2 to 4 weeks</item>
-        <item>4 weeks ++</item>
+        <item>&lt; 1 week</item>
+        <item>1 – 2 weeks</item>
+        <item>2 – 4 weeks</item>
+        <item>&gt; 4 weeks</item>
     </string-array>
 
     <string-array name="mediation">
